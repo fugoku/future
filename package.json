@@ -1,10 +1,10 @@
 {
-  "name": "taxonomy",
+  "name": "cloud",
   "version": "0.2.0",
   "private": true,
   "author": {
-    "name": "shadcn",
-    "url": "https://twitter.com/shadcn"
+    "name": "fugoku",
+    "url": "https://twitter.com/fugoku"
   },
   "scripts": {
     "dev": "concurrently \"contentlayer dev\" \"next dev\"",
@@ -13,7 +13,7 @@
     "start": "next start",
     "lint": "next lint",
     "preview": "next build && next start",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma db push && prisma generate"
   },
   "dependencies": {
     "@editorjs/code": "^2.8.0",
