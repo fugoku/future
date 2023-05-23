@@ -1,19 +1,21 @@
 version: '3'
 services:
-  next:
+  future:
+    container_name: portainer
+    restart: always
     build:
       context: .
       dockerfile: dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.future.rule=Host(`next.fugoku.com`) && PathPrefix(`/`)"
+      - "traefik.http.routers.future.rule=Host(`future.fugoku.com`) && PathPrefix(`/`)"
       # - "traefik.http.routers.portainer.tls=true"
       # - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
       - "traefik.http.routers.future.service=future"
-      - "traefik.http.services.future.loadbalancer.server.port=3000"
+      - "traefik.http.services.future.loadbalancer.server.port=3002"
       - "traefik.docker.network=coolify-infra"
     ports:
-      - '8001:3000'
+      - '8001:3002'
     volumes:
       - prisma:/app/prisma
       - .:/app
@@ -26,4 +28,4 @@ volumes:
   prisma:
 networks:
   coolify-infra:
-    external: true
+    external: false
