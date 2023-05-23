@@ -15,8 +15,8 @@ RUN export NODE_ENV=production
 RUN npm install -g pnpm
 COPY .env .env
 COPY prisma prisma
-RUN pnpm install
 COPY . .
+RUN pnpm install
 RUN pnpm run prisma:generate
 RUN pnpm build
 

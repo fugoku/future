@@ -6,11 +6,11 @@ services:
       dockerfile: dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`next.fugoku.com`) && PathPrefix(`/`)"
+      - "traefik.http.routers.future.rule=Host(`next.fugoku.com`) && PathPrefix(`/`)"
       # - "traefik.http.routers.portainer.tls=true"
       # - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.portainer.service=portainer"
-      - "traefik.http.services.portainer.loadbalancer.server.port=3000"
+      - "traefik.http.routers.future.service=future"
+      - "traefik.http.services.future.loadbalancer.server.port=3000"
       - "traefik.docker.network=coolify-infra"
     ports:
       - '8001:3000'
