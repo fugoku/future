@@ -1,0 +1,29 @@
+version: '3'
+services:
+  next:
+    build:
+      context: .
+      dockerfile: dockerfile
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`next.fugoku.com`) && PathPrefix(`/`)"
+      # - "traefik.http.routers.portainer.tls=true"
+      # - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.portainer.service=portainer"
+      - "traefik.http.services.portainer.loadbalancer.server.port=3000"
+      - "traefik.docker.network=coolify-infra"
+    ports:
+      - '8001:3000'
+    volumes:
+      - prisma:/app/prisma
+      - .:/app
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL="postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+    networks:
+      - coolify-infra
+volumes:
+  prisma:
+networks:
+  coolify-infra:
+    external: true
