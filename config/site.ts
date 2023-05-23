@@ -9,5 +9,6 @@ export const siteConfig: SiteConfig = {
   links: {
     twitter: "https://twitter.com/fugoku",
     github: "https://github.com/fugoku",
+    linkedin: "https://linkedin.com/fugoku"
   },
 }
