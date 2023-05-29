@@ -9,19 +9,17 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.future.rule=Host(`future.fugoku.com`) && PathPrefix(`/`)"
-      # - "traefik.http.routers.portainer.tls=true"
-      # - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
       - "traefik.http.routers.future.service=future"
-      - "traefik.http.services.future.loadbalancer.server.port=3002"
+      - "traefik.http.services.future.loadbalancer.server.port=3003"
       - "traefik.docker.network=coolify-infra"
     ports:
-      - '8001:3002'
+      - '8001:3003'
     volumes:
       - prisma:/app/prisma
       - .:/app
     environment:
       - NODE_ENV=production
-      - DATABASE_URL="postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+      - DATABASE_URL=postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb
     networks:
       - coolify-infra
 volumes:
