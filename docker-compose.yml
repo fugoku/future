@@ -2,7 +2,7 @@ version: '3'
 services:
   future:
     container_name: future
-    restart: always
+    # restart: always
     build:
       context: .
       dockerfile: dockerfile
@@ -13,10 +13,10 @@ services:
       - "traefik.http.services.future.loadbalancer.server.port=3003"
       - "traefik.docker.network=coolify-infra"
     ports:
-      - '8001:3003'
-    volumes:
-      - prisma:/app/prisma
-      - .:/app
+      - '3003:3003'
+    # volumes:
+    #   - prisma:/app/prisma
+    #   - .:/app
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb
@@ -26,4 +26,4 @@ volumes:
   prisma:
 networks:
   coolify-infra:
-    external: false
+    external: true
