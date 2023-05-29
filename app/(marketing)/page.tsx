@@ -155,9 +155,9 @@ export default async function IndexPage() {
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">Authentication</h3>
+                <h3 className="font-bold">Climate Friendly</h3>
                 <p className="text-sm text-muted-foreground">
-                  Authentication using NextAuth.js and middlewares.
+                  Green Serversss
                 </p>
               </div>
             </div>
