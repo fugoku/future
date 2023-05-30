@@ -12,6 +12,11 @@ services:
       - "traefik.http.routers.future.service=future"
       - "traefik.http.services.future.loadbalancer.server.port=3003"
       - "traefik.docker.network=coolify-infra"
+      - "traefik.http.routers.future-secure.rule=Host(`future.fugoku.com`) && PathPrefix(`/`)"
+      - "traefik.http.routers.future-secure.service=future"
+      - "traefik.http.services.future-secure.loadbalancer.server.port=3003"
+      - "traefik.http.routers.future-secure.tls=true"
+      - "traefik.http.routers.future-secure.tls.certresolver=letsencrypt"
     ports:
       - '3003:3003'
     # volumes:
