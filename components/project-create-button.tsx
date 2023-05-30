@@ -8,26 +8,26 @@ import { ButtonProps, buttonVariants } from "@/components/ui/button"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 
-interface PostCreateButtonProps extends ButtonProps {}
+interface ProjectCreateButtonProps extends ButtonProps {}
 
-export function PostCreateButton({
+export function ProjectCreateButton({
   className,
   variant,
   ...props
-}: PostCreateButtonProps) {
+}: ProjectCreateButtonProps) {
   const router = useRouter()
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
 
   async function onClick() {
     setIsLoading(true)
 
-    const response = await fetch("/api/posts", {
+    const response = await fetch("/api/projects", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: "Untitled Post",
+        title: "Untitled Project",
       }),
     })
 
@@ -36,7 +36,7 @@ export function PostCreateButton({
     if (!response?.ok) {
       if (response.status === 402) {
         return toast({
-          title: "Limit of 3 posts reached.",
+          title: "Limit of 3 projects reached.",
           description: "Please upgrade to the PRO plan.",
           variant: "destructive",
         })
@@ -44,17 +44,17 @@ export function PostCreateButton({
 
       return toast({
         title: "Something went wrong.",
-        description: "Your post was not created. Please try again.",
+        description: "Your project was not created. Please try again.",
         variant: "destructive",
       })
     }
 
-    const post = await response.json()
+    const project = await response.json()
 
     // This forces a cache invalidation.
     router.refresh()
 
-    router.push(`/editor/${post.id}`)
+    router.push(`/editor/${project.id}`)
   }
 
   return (
@@ -75,7 +75,7 @@ export function PostCreateButton({
       ) : (
         <Icons.add className="mr-2 h-4 w-4" />
       )}
-      New post
+      New project
     </button>
   )
 }
