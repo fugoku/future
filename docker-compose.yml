@@ -25,7 +25,7 @@ services:
       - GITHUB_ACCESS_TOKEN=1234567890abcdefghijklmnopqrstuv
       - NEXT_PUBLIC_GITHUB_REDIRECT_URI=https://future.fugoku.com
       - SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-      - DATABASE_URL="postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+      - DATABASE_URL=postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb
       - SMTP_FROM=richardokonicha+future@gmail.com
       - POSTMARK_API_TOKEN=a06503e4-0606-49ed-a273-382d3149fd75
       - POSTMARK_SIGN_IN_TEMPLATE=1
