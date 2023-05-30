@@ -17,6 +17,8 @@ services:
       - "traefik.http.services.future-secure.loadbalancer.server.port=3003"
       - "traefik.http.routers.future-secure.tls=true"
       - "traefik.http.routers.future-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.future.middlewares=redirect-to-https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
     ports:
       - '3003:3003'
     # volumes:
