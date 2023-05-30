@@ -3,9 +3,7 @@ services:
   future:
     container_name: future
     # restart: always
-    build:
-      context: .
-      dockerfile: dockerfile
+    image: ghcr.io/fugoku/future:dev
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.future.rule=Host(`future.fugoku.com`) && PathPrefix(`/`)"
@@ -19,18 +17,31 @@ services:
       - "traefik.http.routers.future-secure.tls.certresolver=letsencrypt"
       - "traefik.http.routers.future.middlewares=redirect-to-https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-    ports:
-      - '3003:3003'
-    # volumes:
-    #   - prisma:/app/prisma
-    #   - .:/app
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb
+      - NEXTAUTH_SECRET=1234567890abcdef
+      - GITHUB_CLIENT_ID=8ac4d0d2d534e4850ba1
+      - GITHUB_CLIENT_SECRET=1f47d0efffb1aea7cab8dfa6479fbae58c2e354b
+      - GITHUB_ACCESS_TOKEN=1234567890abcdefghijklmnopqrstuv
+      - NEXT_PUBLIC_GITHUB_REDIRECT_URI=https://future.fugoku.com
+      - SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+      - DATABASE_URL="postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+      - SMTP_FROM=richardokonicha+future@gmail.com
+      - POSTMARK_API_TOKEN=a06503e4-0606-49ed-a273-382d3149fd75
+      - POSTMARK_SIGN_IN_TEMPLATE=1
+      - POSTMARK_ACTIVATION_TEMPLATE=2
+      - STRIPE_API_KEY=pk_test_51LoUwzEWUd3V6JZmVoCpFUrBX5ZnB8r2ciEthTnF4CrJuonQPE9O5NYdcLnAWbeFMIwbMQZB6JnAP1paVCFNZRFE00xungTXF4
+      - STRIPE_WEBHOOK_SECRET=whsec_d7ac6a81b7ff9ea462cf2dd9274aa79136ef705b2de3c17a24b304377958bc20
+      - STRIPE_PRO_MONTHLY_PLAN_ID=price_1N9jVGEWUd3V6JZm4EmJVxdq
+      - STRIPE_SECRET_KEY=sk_test_51LoUwzEWUd3V6JZmVROeQUUk5Smd5OpAwiyCmSxoNIZr6s8JrtwKUKQfgeNS1RDh9diCe9Xm0sMpoBZwdvUtBBQj00GhPZTBdO
+      - NEXT_PUBLIC_APP_URL=https://future.fugoku.com
+      - NEXTAUTH_URL=https://future.fugoku.com
+      - JWT_SECRET=nJKXlFtxf2aZX9yruhtkNwapOW9idIJfg2L2bWedoA==
     networks:
       - coolify-infra
-volumes:
-  prisma:
+      - fugoku-infra
 networks:
   coolify-infra:
     external: true
+  fugoku-infra:
+    external: false
