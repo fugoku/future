@@ -20,7 +20,7 @@ export default async function DashboardPage() {
     redirect(authOptions?.pages?.signIn || "/login")
   }
 
-  const posts = await db.post.findMany({
+  const projects = await db.post.findMany({
     where: {
       authorId: user.id,
     },
@@ -37,22 +37,22 @@ export default async function DashboardPage() {
 
   return (
     <DashboardShell>
-      <DashboardHeader heading="Posts" text="Create and manage posts.">
+      <DashboardHeader heading="Projects" text="Create and manage Projects.">
         <PostCreateButton />
       </DashboardHeader>
       <div>
-        {posts?.length ? (
+        {projects?.length ? (
           <div className="divide-y divide-border rounded-md border">
-            {posts.map((post) => (
-              <PostItem key={post.id} post={post} />
+            {projects.map((project) => (
+              <PostItem key={project.id} post={project} />
             ))}
           </div>
         ) : (
           <EmptyPlaceholder>
             <EmptyPlaceholder.Icon name="post" />
-            <EmptyPlaceholder.Title>No posts created</EmptyPlaceholder.Title>
+            <EmptyPlaceholder.Title>No projects created</EmptyPlaceholder.Title>
             <EmptyPlaceholder.Description>
-              You don&apos;t have any posts yet. Start creating content.
+              You don&apos;t have any projects yet. Start deploying your application.
             </EmptyPlaceholder.Description>
             <PostCreateButton variant="outline" />
           </EmptyPlaceholder>
