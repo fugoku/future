@@ -30,8 +30,7 @@ export default function LoginPage() {
         <div className="flex flex-col space-y-2 text-center">
          
         <div className="flex justify-center">
-          <Icons.rfugo className="h-12 w-12 pb-2 block"/>
-          {/* <Icons.fugo className="block"/> */}
+          <Icons.rfugo className="h-12 pb-px"/>
         </div>
 
           <h1 className="text-2xl font-semibold tracking-tight">
