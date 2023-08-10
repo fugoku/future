@@ -4,6 +4,7 @@ services:
     container_name: future
     # restart: always
     image: ghcr.io/fugoku/future:dev
+    pull_policy: always
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.future.rule=Host(`future.fugoku.com`) && PathPrefix(`/`)"
