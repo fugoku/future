@@ -1,19 +1,21 @@
+
 version: '3'
 services:
   future:
-    container_name: future
     # restart: always
-    image: ghcr.io/fugoku/future:dev
     build:
       context: .
       dockerfile: dockerfile
+    # command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
+    container_name: future
+    # image: ghcr.io/fugoku/future:dev
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.future.rule=Host(`future.fugoku.com`) && PathPrefix(`/`)"
+      - "traefik.http.routers.future.rule=Host(`x.fugoku.com`) && PathPrefix(`/`)"
       - "traefik.http.routers.future.service=future"
       - "traefik.http.services.future.loadbalancer.server.port=3003"
-      - "traefik.docker.network=coolify-infra"
-      - "traefik.http.routers.future-secure.rule=Host(`future.fugoku.com`) && PathPrefix(`/`)"
+      - "traefik.docker.network=deploy"
+      - "traefik.http.routers.future-secure.rule=Host(`x.fugoku.com`) && PathPrefix(`/`)"
       - "traefik.http.routers.future-secure.service=future"
       - "traefik.http.services.future-secure.loadbalancer.server.port=3003"
       - "traefik.http.routers.future-secure.tls=true"
@@ -21,17 +23,25 @@ services:
       - "traefik.http.routers.future.middlewares=redirect-to-https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
     ports:
-      - '3003:3003'
+      - 3003:3003
+      # do not uncomment below
+      # - 9229:9229
     # volumes:
-    #   - prisma:/app/prisma
-    #   - .:/app
+      # - prisma:/app/prisma
+      # - .:/app
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb
     networks:
       - coolify-infra
+      - generated_default
+      - deploy
 volumes:
   prisma:
 networks:
   coolify-infra:
+    external: true
+  generated_default:
+    external: true
+  deploy:
     external: true
