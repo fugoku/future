@@ -8,5 +8,13 @@ node:
 traefik-up:
 	docker-compose -f ./traefik.yml up -d traefik
 
-future-up:
-	docker-compose -f ./docker-compose-dev.yml up -d future
+future:
+	docker-compose -f ./docker-compose-dev.yml up future
+
+deploy:
+	docker-compose -f ./docker-compose.yml up future
+
+network:
+	docker network create coolify-infra
+	docker network create deploy
+	docker network create generated_default

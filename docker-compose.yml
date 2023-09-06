@@ -7,7 +7,7 @@ services:
     pull_policy: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.future.rule=Host(`future.fugoku.com`) && PathPrefix(`/`)"
+      - "traefik.http.routers.future.rule=Host(`future.fugoku.com`) || Host(`fugoku.pro`) && PathPrefix(`/`)"
       - "traefik.http.routers.future.service=future"
       - "traefik.http.services.future.loadbalancer.server.port=3003"
       - "traefik.docker.network=coolify-infra"
