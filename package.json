@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "concurrently \"contentlayer dev\" \"next dev\"",
+    "d": "PORT=3003 next dev",
     "build": "contentlayer build && next build",
     "turbo": "next dev --turbo",
     "go": "PORT=3003 next dev",

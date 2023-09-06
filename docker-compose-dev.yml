@@ -12,7 +12,7 @@ services:
       - "traefik.http.routers.future.service=future"
       - "traefik.http.services.future.loadbalancer.server.port=3003"
       - "traefik.docker.network=deploy"
-      - "traefik.http.routers.future-secure.rule=Host(`x.fugoku.com`) && PathPrefix(`/`)"
+      - "traefik.http.routers.future-secure.rule=Host(`future.fugoku.com`) || Host(`fugoku.pro`) && PathPrefix(`/`)"
       - "traefik.http.routers.future-secure.service=future"
       - "traefik.http.services.future-secure.loadbalancer.server.port=3003"
       - "traefik.http.routers.future-secure.tls=true"
