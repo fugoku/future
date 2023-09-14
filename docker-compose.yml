@@ -2,7 +2,7 @@ version: '3'
 services:
   future:
     container_name: future
-    # restart: always
+    restart: always
     image: ghcr.io/fugoku/future:dev
     pull_policy: always
     labels:
