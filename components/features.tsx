@@ -33,24 +33,24 @@ export function Feature({ className, ...props }: FeatureProps) {
     subtext2:
       "Fugoku also includes a blog and a full-featured documentation site built using Contentlayer and MDX.",
     services: [
-      {
-        title: "Web Services",
-        description: "Next.js 13 Django & Flask Rails & Express GraphQL & REST",
-        animate: Ad1
-      },
-      {
-        title: "Static Sites",
-        description: "React 18, Create React App, Gatsby, Hugo",
-        animate: Ad2
+      // {
+      //   title: "Web Services",
+      //   description: "Next.js 13 Django & Flask Rails & Express GraphQL & REST",
+      //   animate: Ad1
+      // },
+      // {
+      //   title: "Static Sites",
+      //   description: "React 18, Create React App, Gatsby, Hugo",
+      //   animate: Ad2
 
-      },
-      {
-        title: "Database",
-        description:
-          "PostgreSQL Fully managed databases with automated backups. Redis® Fully managed in-memory storage with live metrics.",
-        animate: Ad3
+      // },
+      // {
+      //   title: "Database",
+      //   description:
+      //     "PostgreSQL Fully managed databases with automated backups. Redis® Fully managed in-memory storage with live metrics.",
+      //   animate: Ad3
 
-      },
+      // },
       {
         title: "Containers",
         description:
@@ -94,7 +94,7 @@ export function Feature({ className, ...props }: FeatureProps) {
   return (
     <section
       id="features"
-      className="container space-y-6 border-2 border-red-500 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
+      className="container space-y-6  bg-slate-50 py-4 dark:bg-transparent md:py-6 lg:py-12"
     >
       <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
         <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
@@ -136,11 +136,11 @@ export function Feature({ className, ...props }: FeatureProps) {
         })}
       </div>
 
-      <div className="mx-auto text-center md:max-w-[58rem]">
+      {/* <div className="mx-auto text-center md:max-w-[58rem]">
         <p className="leading-normal text-muted-foreground sm:text-lg sm:leading-7">
           {data.subtext2}
         </p>
-      </div>
+      </div> */}
     </section>
   )
 }
