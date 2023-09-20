@@ -1,20 +1,18 @@
 import { Inter as FontSans } from "next/font/google"
 import localFont from "next/font/local"
-
 import "@/styles/globals.css"
 import { siteConfig } from "@/config/site"
 import { absoluteUrl, cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { ThemeProvider } from "@/components/theme-provider"
+import Providers from "./providers"
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 })
 
-// Font files can be colocated inside of `pages`
 const fontHeading = localFont({
   src: "../assets/fonts/CalSans-SemiBold.woff2",
   variable: "--font-heading",
@@ -40,7 +38,7 @@ export const metadata = {
   authors: [
     {
       name: "shadcn",
-      url: "https://shadcn.com",
+      url: "https://sha.com",
     },
   ],
   creator: "shadcn",
@@ -82,12 +80,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontHeading.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Providers>
           {children}
           <Analytics />
           <Toaster />
           <TailwindIndicator />
-        </ThemeProvider>
+          </Providers>
       </body>
     </html>
   )

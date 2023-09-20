@@ -18,21 +18,21 @@ export function TrustedBrand() {
               className="h-12"
               width={60}
               height={40}
-              src="https://assets.vercel.com/image/upload/front/home/new/logos/okta.svg 1x, https://assets.vercel.com/image/upload/front/home/new/logos/okta.svg 2x" alt="Tuple" />
+              src="https://assets.vercel.com/image/upload/front/home/new/logos/okta.svg" alt="Tuple" />
             </div>
             <div className="ml-8 mt-4 flex shrink-0 grow lg:ml-4 lg:grow-0">
               <Image
               className="h-12"
               width={60}
               height={40}
-              src="https://assets.vercel.com/image/upload/front/home/new/logos/zapier.svg 1x, https://assets.vercel.com/image/upload/front/home/new/logos/zapier.svg 2x" alt="Mirage" />
+              src="https://assets.vercel.com/image/upload/front/home/new/logos/zapier.svg" alt="Mirage" />
             </div>
             <div className="ml-8 mt-4 flex shrink-0 grow lg:ml-4 lg:grow-0">
               <Image
                 className="h-12"
                 width={60}
               height={40}
-                src="https://assets.vercel.com/image/upload/front/home/new/logos/tailwindcss.svg 1x, https://assets.vercel.com/image/upload/front/home/new/logos/tailwindcss.svg 2x"
+                src="https://assets.vercel.com/image/upload/front/home/new/logos/tailwindcss.svg"
                 alt="StaticKit"
               />
             </div>
@@ -41,7 +41,7 @@ export function TrustedBrand() {
                 className="h-12"
                 width={60}
               height={40}
-                src="https://assets.vercel.com/image/upload/front/home/new/logos/hashicorp.svg 1x, https://assets.vercel.com/image/upload/front/home/new/logos/hashicorp.svg 2x"
+                src="https://assets.vercel.com/image/upload/front/home/new/logos/hashicorp.svg"
                 alt="Transistor"
               />
             </div>
@@ -50,7 +50,7 @@ export function TrustedBrand() {
                 className="h-12"
                 width={60}
               height={40}
-                src="https://assets.vercel.com/image/upload/front/home/new/logos/washingtonpost.svg 1x, https://assets.vercel.com/image/upload/front/home/new/logos/washingtonpost.svg 2x"
+                src="https://assets.vercel.com/image/upload/front/home/new/logos/washingtonpost.svg"
                 alt="Workcation"
               />
             </div>

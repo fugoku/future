@@ -32,6 +32,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
-  ],
+, "lib/constants"  ],
   "exclude": ["node_modules"]
 }
