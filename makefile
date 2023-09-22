@@ -14,6 +14,9 @@ future:
 deploy:
 	docker-compose -f ./docker-compose.yml up future
 
+deploy-d:
+	docker-compose -f ./docker-compose.yml down
+
 network:
 	docker network create coolify-infra
 	docker network create deploy

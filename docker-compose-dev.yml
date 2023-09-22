@@ -8,17 +8,17 @@ services:
     container_name: future
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.future.rule=Host(`future.fugoku.com`) || Host(`fugoku.pro`) && PathPrefix(`/`)"
+      - "traefik.http.routers.future.rule=Host(`fugoku.pro`) && PathPrefix(`/`)"
       - "traefik.http.routers.future.service=future"
       - "traefik.http.services.future.loadbalancer.server.port=3003"
       - "traefik.docker.network=deploy"
-      - "traefik.http.routers.future-secure.rule=Host(`future.fugoku.com`) || Host(`fugoku.pro`) && PathPrefix(`/`)"
+      - "traefik.http.routers.future-secure.rule=Host(`fugoku.pro`) && PathPrefix(`/`)"
       - "traefik.http.routers.future-secure.service=future"
       - "traefik.http.services.future-secure.loadbalancer.server.port=3003"
-      - "traefik.http.routers.future-secure.tls=true"
-      - "traefik.http.routers.future-secure.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.future.middlewares=redirect-to-https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      # - "traefik.http.routers.future-secure.tls=true"
+      # - "traefik.http.routers.future-secure.tls.certresolver=letsencrypt"
+      # - "traefik.http.routers.future.middlewares=redirect-to-https"
+      # - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
     ports:
       - 3003:3003
     user: root
@@ -27,7 +27,8 @@ services:
       - .:/app
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgres://default:HlJzr0v6eyGp@ep-calm-brook-757839.us-east-1.postgres.vercel-storage.com:5432/verceldb
+      - DATABASE_URL=postgres://default:BDILklmiQ63o@ep-steep-dew-49113896.us-east-1.postgres.vercel-storage.com:5432/verceldb
+
     networks:
       - coolify-infra
       - generated_default
