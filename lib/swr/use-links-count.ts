@@ -9,18 +9,20 @@ export default function useLinksCount({
 } = {}) {
   const router = useRouter();
 
-  const { data, error } = useSWR<any>(
-    router.isReady &&
-      `/api/links/_count${getQueryString(
-        router,
-        groupBy ? { groupBy } : undefined,
-      )}`,
-    fetcher,
-    {
-      dedupingInterval: 30000,
-      keepPreviousData: true,
-    },
-  );
+  // const { data, error } = useSWR<any>(
+  //   router &&
+  //   `/api/links/_count${getQueryString(
+  //     router,
+  //     groupBy ? { groupBy } : undefined,
+  //   )}`,
+  //   fetcher,
+  //   {
+  //     dedupingInterval: 30000,
+  //     keepPreviousData: true,
+  //   },
+  // );
+  const data = {}
+  const error = null
 
   return {
     data,

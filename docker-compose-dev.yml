@@ -34,6 +34,8 @@ services:
       - generated_default
       - deploy
     command: ["pnpm", "run", "dev"]
+    stdin_open: true       # Allow for interactive input
+    tty: true             # Allocate a pseudo-TTY
 volumes:
   prisma:
 networks:

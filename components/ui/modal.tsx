@@ -1,4 +1,7 @@
+/* eslint-disable */
+
 "use client";
+
 
 import { Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/navigation";
@@ -97,3 +100,5 @@ export default function Modal({
     </Dialog.Root>
   );
 }
+
+/* eslint-enable */

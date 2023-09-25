@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 import Modal from "@/components/ui/modal";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button2";
 import { Logo } from "@/components/ui/icons";
 import { Google } from "@/components/shared/icons";
 import Cookies from "js-cookie";
@@ -61,7 +61,7 @@ function GoogleOauthModal({
           }}
           className="text-sm text-gray-400 underline underline-offset-4 transition-colors hover:text-gray-800 active:text-gray-400"
         >
-          Don't show this again
+          Don&#39;t show this again
         </button>
       </div>
     </Modal>

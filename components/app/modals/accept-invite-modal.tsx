@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useRouter } from "next/router";
 import Link from "next/link";
 import {
@@ -32,13 +34,13 @@ function AcceptInviteModal({
       setShowModal={setShowAcceptInviteModal}
       preventDefaultClose
     >
-      {error?.status === 409 ? (
+      {error?.status ? (
         <>
           <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 p-4 pt-8 sm:px-16">
             <Logo />
             <h3 className="text-lg font-medium">Project Invitation</h3>
             <p className="text-center text-sm text-gray-500">
-              You've been invited to join and collaborate on the{" "}
+              You've been invited to join and collaborate on the{"&apos; "}
               <span className="font-mono text-purple-600">
                 {slug || "......"}
               </span>{" "}
@@ -68,8 +70,8 @@ function AcceptInviteModal({
               }}
               disabled={accepting}
               className={`${accepting
-                  ? "cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400"
-                  : "border-black bg-black text-white hover:bg-white hover:text-black"
+                ? "cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400"
+                : "border-black bg-black text-white hover:bg-white hover:text-black"
                 } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
             >
               {accepting ? (
@@ -82,7 +84,7 @@ function AcceptInviteModal({
         </>
       ) : (
         <>
-          <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 px-4 py-4 pt-8 sm:px-16">
+          <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 p-4 pt-8 sm:px-16">
             <Logo />
             <h3 className="text-lg font-medium">Project Invitation Expired</h3>
             <p className="text-center text-sm text-gray-500">
@@ -123,3 +125,6 @@ export function useAcceptInviteModal() {
     [setShowAcceptInviteModal, AcceptInviteModalCallback],
   );
 }
+
+
+/* eslint-enable */

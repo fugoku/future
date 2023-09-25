@@ -36,10 +36,12 @@ export default function UserDropdown() {
     const lastReadChangelog =
       Cookies.get("lastReadChangelog") || new Date("2023-08-13").toISOString();
     const unreadChangelogs = allPosts.filter(
-      (post) => post.publishedAt > lastReadChangelog,
+      (post) => post.published > lastReadChangelog,
     ).length;
     setUnreadChangelogs(unreadChangelogs);
   }, []);
+
+  // const unreadChangelogs = []
 
   const { setShowCMDK } = useContext(ModalContext);
 

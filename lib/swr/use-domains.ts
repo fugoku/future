@@ -21,20 +21,20 @@ export default function useDomains({ domain }: { domain?: string } = {}) {
   );
 
   const domains = useMemo(() => {
-    if (router.isReady) {
+    if (router) {
       return slug
         ? data
         : ([
-            {
-              slug: "dub.sh",
-              verified: true,
-              primary: true,
-              target: "https://dub.co",
-              type: "redirect",
-            },
-          ] as DomainProps[]);
+          {
+            slug: "dub.sh",
+            verified: true,
+            primary: true,
+            target: "https://dub.co",
+            type: "redirect",
+          },
+        ] as DomainProps[]);
     }
-  }, [data, router.isReady]);
+  }, [data, router, slug]);
 
   return {
     domains,
@@ -43,9 +43,9 @@ export default function useDomains({ domain }: { domain?: string } = {}) {
       (domains && domains.length > 0 && domains[0].slug),
     verified: domain
       ? // If a domain is passed, check if it's verified
-        domains?.find((d) => d.slug === domain)?.verified
+      domains?.find((d) => d.slug === domain)?.verified
       : // If no domain is passed, check if any of the domains are verified
-        domains?.some((d) => d.verified),
+      domains?.some((d) => d.verified),
     loading: !domains && !error,
     error,
   };

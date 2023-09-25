@@ -1,3 +1,6 @@
+
+/* eslint-disable */
+
 "use client";
 
 import {
@@ -32,15 +35,15 @@ export const ModalContext = createContext<{
   setPollLinks: Dispatch<SetStateAction<boolean>>;
   setShowCMDK: Dispatch<SetStateAction<boolean>>;
 }>({
-  setShowAddProjectModal: () => {},
-  setShowCompleteSetupModal: () => {},
-  setShowAddEditDomainModal: () => {},
-  setShowAddEditLinkModal: () => {},
-  setShowUpgradePlanModal: () => {},
-  setShowImportBitlyModal: () => {},
-  setShowImportShortModal: () => {},
-  setPollLinks: () => {},
-  setShowCMDK: () => {},
+  setShowAddProjectModal: () => { },
+  setShowCompleteSetupModal: () => { },
+  setShowAddEditDomainModal: () => { },
+  setShowAddEditLinkModal: () => { },
+  setShowUpgradePlanModal: () => { },
+  setShowImportBitlyModal: () => { },
+  setShowImportShortModal: () => { },
+  setPollLinks: () => { },
+  setShowCMDK: () => { },
 });
 
 export default function ModalProvider({ children }: { children: ReactNode }) {
@@ -83,6 +86,7 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
 
   return (
     <ModalContext.Provider
+      // @ts-ignore
       value={{
         // setShowAddProjectModal,
         // setShowCompleteSetupModal,
@@ -107,3 +111,4 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
     </ModalContext.Provider>
   );
 }
+/* eslint-enable */

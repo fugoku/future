@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import * as React from "react"
 
 import { siteConfig } from "@/config/site"
@@ -100,12 +102,12 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
 
     <footer className="bg-white" aria-labelledby="footer-heading">
-    <h2 id="footer-heading" className="sr-only">
-      Footer
-    </h2>
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-      <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-        {/* <div className="space-y-8 xl:col-span-1">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          {/* <div className="space-y-8 xl:col-span-1">
           <img
             className="h-10"
             src="https://tailwindui.com/img/logos/workflow-mark-gray-300.svg"
@@ -123,102 +125,103 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             ))}
           </div>
         </div> */}
-        <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-          <div className="md:grid md:grid-cols-2 md:gap-8">
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Solutions</h3>
-              <ul role="list" className="mt-4 space-y-4">
-                {navigation.solutions.map((item) => (
-                  <li key={item.name}>
-                    <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Solutions</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.solutions.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Support</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.support.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="mt-12 md:mt-0">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Support</h3>
-              <ul role="list" className="mt-4 space-y-4">
-                {navigation.support.map((item) => (
-                  <li key={item.name}>
-                    <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="md:grid md:grid-cols-2 md:gap-8">
-            <div>
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
-              <ul role="list" className="mt-4 space-y-4">
-                {navigation.company.map((item) => (
-                  <li key={item.name}>
-                    <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-12 md:mt-0">
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
-              <ul role="list" className="mt-4 space-y-4">
-                {navigation.legal.map((item) => (
-                  <li key={item.name}>
-                    <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.company.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.legal.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
+        <ModeToggle />
+        <div className="mt-12 border-t border-gray-200 pt-8">
+          <p className="text-base text-gray-400 xl:text-center">&copy; 2020 Workflow, Inc. All rights reserved.</p>
+        </div>
       </div>
-      <ModeToggle/>
-      <div className="mt-12 border-t border-gray-200 pt-8">
-        <p className="text-base text-gray-400 xl:text-center">&copy; 2020 Workflow, Inc. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
   )
 }
 
 
-    // <footer className={cn(className)}>
-    //   <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-    //     <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-    //       <Icons.logo />
-    //       <p className="text-center text-sm leading-loose md:text-left">
-    //         Copyright 2023 {" "}
-    //         <a
-    //           href="https://fugoku.com"
-    //           target="_blank"
-    //           rel="noreferrer"
-    //           className="font-medium underline underline-offset-4"
-    //         >
-    //           Fugoku Inc
-    //         </a>
-    //         . All rights reserved.{" "}
-    //         <br/>
-    //         Join our community on {" "}
-    //         <a
-    //           href={siteConfig.links.linkedin}
-    //           target="_blank"
-    //           rel="noreferrer"
-    //           className="font-medium underline underline-offset-4"
-    //         >
-    //           Linkedin
-    //         </a>
-    //       </p>
-    //     </div>
-    //     <ModeToggle />
-    //     <span>
-    //     <Icons.fugo/>
-    //     </span>
-    //   </div>
-    // </footer>
+// <footer className={cn(className)}>
+//   <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+//     <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+//       <Icons.logo />
+//       <p className="text-center text-sm leading-loose md:text-left">
+//         Copyright 2023 {" "}
+//         <a
+//           href="https://fugoku.com"
+//           target="_blank"
+//           rel="noreferrer"
+//           className="font-medium underline underline-offset-4"
+//         >
+//           Fugoku Inc
+//         </a>
+//         . All rights reserved.{" "}
+//         <br/>
+//         Join our community on {" "}
+//         <a
+//           href={siteConfig.links.linkedin}
+//           target="_blank"
+//           rel="noreferrer"
+//           className="font-medium underline underline-offset-4"
+//         >
+//           Linkedin
+//         </a>
+//       </p>
+//     </div>
+//     <ModeToggle />
+//     <span>
+//     <Icons.fugo/>
+//     </span>
+//   </div>
+// </footer>
 
+/* eslint-enable */

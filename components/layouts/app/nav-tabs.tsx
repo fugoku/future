@@ -5,7 +5,9 @@ import { useContext, useMemo } from "react";
 import useDomains from "@/lib/swr/use-domains";
 import useLinksCount from "@/lib/swr/use-links-count";
 import useUsers from "@/lib/swr/use-users";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge2";
+// import { Badge } from "@/components/app/projects/plan-badge2";
+
 import useProject from "@/lib/swr/use-projects";
 
 const TabsHelper = (router: any): { name: string; href: string }[] => {
@@ -69,30 +71,30 @@ export default function NavTabs() {
   // }
 
   // if (!error) {
-    return (
-      <div className="scrollbar-hide -mb-0.5 flex h-12 items-center justify-start space-x-2 overflow-x-auto">
-        {tabs.map(({ name, href }) => (
-          <Link
-            key={href}
-            href={href}
-            // className={`border-b-2 p-1 ${
-            //   // hacky approach to getting the current tab – will replace with useSelectedLayoutSegments when upgrading to Next.js 13
-            //   router.asPath.split("?")[0].split("/").slice(0, 3).join("/") ===
-            //   href
-            //     ? "border-black text-black"
-            //     : "border-transparent text-gray-600 hover:text-black"
-            // }`}
-          >
-            <div className="rounded-md px-3 py-2 transition-all duration-75 hover:bg-gray-100 active:bg-gray-200">
-              <p className="text-sm">{name}</p>
-            </div>
-          </Link>
-        ))}
-        {slug && !loading && (!verified || count === 0) && (
-          <OnboardingChecklist />
-        )}
-      </div>
-    );
+  return (
+    <div className="scrollbar-hide -mb-0.5 flex h-12 items-center justify-start space-x-2 overflow-x-auto">
+      {tabs.map(({ name, href }) => (
+        <Link
+          key={href}
+          href={href}
+        // className={`border-b-2 p-1 ${
+        //   // hacky approach to getting the current tab – will replace with useSelectedLayoutSegments when upgrading to Next.js 13
+        //   router.asPath.split("?")[0].split("/").slice(0, 3).join("/") ===
+        //   href
+        //     ? "border-black text-black"
+        //     : "border-transparent text-gray-600 hover:text-black"
+        // }`}
+        >
+          <div className="rounded-md px-3 py-2 transition-all duration-75 hover:bg-gray-100 active:bg-gray-200">
+            <p className="text-sm">{name}</p>
+          </div>
+        </Link>
+      ))}
+      {slug && !loading && (!verified || count === 0) && (
+        <OnboardingChecklist />
+      )}
+    </div>
+  );
   // }
 }
 

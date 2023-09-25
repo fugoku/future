@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useContext, useMemo, useState } from "react";
 import { useSession } from "next-auth/react";
@@ -31,7 +33,7 @@ export default function ProjectSelect() {
   // let key = null
 
   const { data: session } = useSession();
-  console.log("popop",session )
+  console.log("popop", session)
 
   const selected = useMemo(() => {
     if (slug && projects && !error) {
@@ -103,9 +105,8 @@ export default function ProjectSelect() {
               className="h-8 w-8 flex-none overflow-hidden rounded-full"
             />
             <div
-              className={`${
-                key ? "hidden" : "flex"
-              } items-center space-x-3 sm:flex`}
+              className={`${key ? "hidden" : "flex"
+                } items-center space-x-3 sm:flex`}
             >
               <span className="inline-block max-w-[100px] truncate text-sm font-medium sm:max-w-[200px]">
                 {selected.name}
@@ -134,7 +135,7 @@ function ProjectList({
     image: string;
     plan: PlanProps;
   };
-  projects: ProjectWithDomainProps[];
+  projects: ProjectWithDomainProps[] | any;
   setOpenPopover: (open: boolean) => void;
 }) {
   const { data: session } = useSession();
@@ -152,7 +153,7 @@ function ProjectList({
         return `/${slug}`;
       } else {
         // else, we keep the path but remove all query params
-        return router.asPath.replace(selected.slug, slug).split("?")[0];
+        return 'router.asPath.replace(selected.slug, slug).split("?")[0]'
       }
     },
     [domain, key, router, selected.slug],
@@ -163,17 +164,15 @@ function ProjectList({
       <div className="p-2 text-xs text-gray-500">Personal Account</div>
       <Link
         key="personal"
-        className={`relative flex w-full items-center space-x-2 rounded-md px-2 py-1.5 hover:bg-gray-100 active:bg-gray-200 ${
-          selected.slug === "/" ? "font-medium" : ""
-        } transition-all duration-75`}
+        className={`relative flex w-full items-center space-x-2 rounded-md px-2 py-1.5 hover:bg-gray-100 active:bg-gray-200 ${selected.slug === "/" ? "font-medium" : ""
+          } transition-all duration-75`}
         href="/links"
         onClick={() => setOpenPopover(false)}
       >
         <Avatar user={session?.user} className="h-7 w-7" />
         <span
-          className={`block truncate pr-8 text-sm ${
-            selected.slug === "/" ? "font-medium" : "font-normal"
-          }`}
+          className={`block truncate pr-8 text-sm ${selected.slug === "/" ? "font-medium" : "font-normal"
+            }`}
         >
           {session?.user?.name || session?.user?.email}
         </span>
@@ -187,9 +186,8 @@ function ProjectList({
       {projects.map(({ id, name, slug, logo, primaryDomain }) => (
         <Link
           key={slug}
-          className={`relative flex w-full items-center space-x-2 rounded-md px-2 py-1.5 hover:bg-gray-100 active:bg-gray-200 ${
-            selected.slug === slug ? "font-medium" : ""
-          } transition-all duration-75`}
+          className={`relative flex w-full items-center space-x-2 rounded-md px-2 py-1.5 hover:bg-gray-100 active:bg-gray-200 ${selected.slug === slug ? "font-medium" : ""
+            } transition-all duration-75`}
           href={href(slug)}
           shallow={false}
           onClick={() => setOpenPopover(false)}
@@ -200,9 +198,8 @@ function ProjectList({
             className="h-7 w-7 overflow-hidden rounded-full"
           />
           <span
-            className={`block truncate text-sm ${
-              selected.slug === slug ? "font-medium" : "font-normal"
-            }`}
+            className={`block truncate text-sm ${selected.slug === slug ? "font-medium" : "font-normal"
+              }`}
           >
             {name}
           </span>
@@ -227,3 +224,5 @@ function ProjectList({
     </div>
   );
 }
+
+/* eslint-enable */

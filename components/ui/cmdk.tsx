@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client";
 
 import { Command, useCommandState } from "cmdk";
@@ -69,7 +71,7 @@ function CMDKHelper({
               </p>
             </div>
           </Command.Empty>
-          <CommandResults setShowCMDK={setShowCMDK} />
+          {/* <CommandResults setShowCMDK={setShowCMDK} /> */}
         </Command.List>
       </Command>
     </Modal>
@@ -87,23 +89,29 @@ const CommandResults = ({
   );
 
   const allItems = [
-    ...allPosts.map((post) => ({
-      ...post,
-      description: post.summary,
-    })),
+    // ...allPosts.map((post) => ({
+    //   ...post,
+    //   description: post.description,
+    // })),
     // get all table of contents headings too
     ...allPosts.flatMap((post) => {
-      if (post.excludeHeadingsFromSearch) {
-        return [];
+      // if (post.published) {
+      //   return [];
+      // }
+      // return post.tableOfContents.map(
+      //   (toc: { title: string; slug: string }) => ({
+      //     slug: `${post.slug}#${toc.slug}`,
+      //     title: toc.title,
+      //     description: null, // omit description since we don't want to search it
+      //     summary: `In: "${post.title}"`,
+      //   }),
+      // );
+      return {
+        slug: "`${post.slug}#${toc.slug}`",
+        title: "toc.title",
+        description: "null",
+        summary: `summary`,
       }
-      return post.tableOfContents.map(
-        (toc: { title: string; slug: string }) => ({
-          slug: `${post.slug}#${toc.slug}`,
-          title: toc.title,
-          description: null, // omit description since we don't want to search it
-          summary: `In: "${post.title}"`,
-        }),
-      );
     }),
   ];
 
@@ -112,7 +120,7 @@ const CommandResults = ({
       new Fuse(allItems, {
         keys: ["title", "description"],
       }),
-    [allItems],
+    [],
   );
 
   const search = useCommandState((state) => state.search);
@@ -124,7 +132,7 @@ const CommandResults = ({
     return fuse.search(search).map((r) => r.item);
   }, [search, popularArticles, fuse]);
 
-  return results.map(({ slug, title, summary }) => (
+  return results.map(({ slug, title, summary }: any) => (
     <Command.Item
       key={slug}
       value={title}

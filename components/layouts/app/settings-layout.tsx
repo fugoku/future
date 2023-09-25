@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-const AppLayout = dynamic(() => import("@/components/layout/app"), {
+const AppLayout = dynamic(() => import("./index"), {
   ssr: false,
 });
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { ReactNode } from "react";
-import { cn } from "#/lib/utils";
+import { cn } from "@/lib/utils";
 
 export default function SettingsLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -21,19 +21,19 @@ export default function SettingsLayout({ children }: { children: ReactNode }) {
     },
     ...(slug
       ? [
-          {
-            name: "Billing",
-            href: `/${slug}/settings/billing`,
-          },
-          {
-            name: "People",
-            href: `/${slug}/settings/people`,
-          },
-          {
-            name: "Security",
-            href: `/${slug}/settings/security`,
-          },
-        ]
+        {
+          name: "Billing",
+          href: `/${slug}/settings/billing`,
+        },
+        {
+          name: "People",
+          href: `/${slug}/settings/people`,
+        },
+        {
+          name: "Security",
+          href: `/${slug}/settings/security`,
+        },
+      ]
       : []),
   ];
 
@@ -55,7 +55,7 @@ export default function SettingsLayout({ children }: { children: ReactNode }) {
               className={cn(
                 "rounded-md p-2.5 text-sm transition-all duration-75 hover:bg-gray-100 active:bg-gray-200",
                 {
-                  "font-semibold text-black": router.asPath === href,
+                  "font-semibold text-black": 'router.asPath' === href,
                 },
               )}
             >

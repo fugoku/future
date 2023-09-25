@@ -1,3 +1,5 @@
+
+/* eslint-disable */
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { Dispatch, SetStateAction, useContext } from "react";
@@ -44,3 +46,5 @@ export default function ProBanner({
     </div>
   );
 }
+
+/* eslint-enable */
